@@ -229,9 +229,6 @@ unsafe extern "C" fn set_by_name(name: *const c_char, value: *const c_char) {
                 "image_quality" => {
                     Session::set_image_quality(value);
                 }
-                "lock_screen" => {
-                    Session::lock_screen();
-                }
                 "ctrl_alt_del" => {
                     Session::ctrl_alt_del();
                 }

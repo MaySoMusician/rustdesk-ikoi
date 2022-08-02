@@ -732,15 +732,6 @@ pub fn is_root() -> bool {
     crate::username() == "SYSTEM"
 }
 
-pub fn lock_screen() {
-    extern "system" {
-        pub fn LockWorkStation() -> BOOL;
-    }
-    unsafe {
-        LockWorkStation();
-    }
-}
-
 const IS1: &str = "{54E86BC2-6C85-41F3-A9EB-1A94AC9B1F93}_is1";
 
 fn get_subkey(name: &str, wow: bool) -> String {

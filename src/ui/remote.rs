@@ -193,7 +193,6 @@ impl sciter::EventHandler for Handler {
         fn ctrl_alt_del();
         fn transfer_file();
         fn tunnel();
-        fn lock_screen();
         fn reconnect();
         fn get_chatbox();
         fn get_icon();
@@ -487,10 +486,6 @@ impl Handler {
                         }
                     }
                     if chr != '\0' {
-                        if chr == 'l' && is_win && command {
-                            me.lock_screen();
-                            return;
-                        }
                         key_event.set_chr(chr as _);
                     } else {
                         log::error!("Unknown key {:?}", evt);
@@ -1135,12 +1130,6 @@ impl Handler {
             key_event.set_control_key(ControlKey::Delete);
             self.key_down_or_up(3, key_event, true, true, false, false);
         }
-    }
-
-    fn lock_screen(&mut self) {
-        let mut key_event = KeyEvent::new();
-        key_event.set_control_key(ControlKey::LockScreen);
-        self.key_down_or_up(1, key_event, false, false, false, false);
     }
 
     fn transfer_file(&mut self) {

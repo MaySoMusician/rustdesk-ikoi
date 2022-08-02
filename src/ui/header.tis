@@ -173,7 +173,6 @@ class Header: Reactor.Component {
                 {audio_enabled ? <li #disable-audio .toggle-option><span>{svg_checkmark}</span>{translate('Mute')}</li> : ""}
                 {is_win && pi.platform == 'Windows' && file_enabled ? <li #enable-file-transfer .toggle-option><span>{svg_checkmark}</span>{translate('Allow file copy and paste')}</li> : ""}
                 {keyboard_enabled && clipboard_enabled ? <li #disable-clipboard .toggle-option><span>{svg_checkmark}</span>{translate('Disable clipboard')}</li> : ""} 
-                {keyboard_enabled ? <li #lock-after-session-end .toggle-option><span>{svg_checkmark}</span>{translate('Lock after session end')}</li> : ""} 
                 {keyboard_enabled && pi.platform == "Windows" ? <li #privacy-mode><span>{svg_checkmark}</span>{translate('Privacy mode')}</li> : ""}
             </menu>
         </popup>;
@@ -188,7 +187,6 @@ class Header: Reactor.Component {
                 {handler.get_audit_server() && <li #note>{translate('Note')}</li>}
                 <div .separator />
                 {keyboard_enabled && (pi.platform == "Linux" || pi.sas_enabled) ? <li #ctrl-alt-del>{translate('Insert')} Ctrl + Alt + Del</li> : ""}
-                {keyboard_enabled ? <li #lock-screen>{translate('Insert Lock')}</li> : ""}
                 {keyboard_enabled && pi.platform == "Windows" && pi.sas_enabled ? <li #block-input>{translate("Block user input")}</li> : ""}
                 <li #refresh>{translate('Refresh')}</li>
             </menu>
@@ -301,10 +299,6 @@ class Header: Reactor.Component {
         handler.ctrl_alt_del();
     }
 
-    event click $(#lock-screen) {
-        handler.lock_screen();
-    }
-    
     event click $(#refresh) {
         handler.refresh_video();
     }

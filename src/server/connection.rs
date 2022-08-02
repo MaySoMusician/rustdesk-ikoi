@@ -1395,10 +1395,6 @@ impl Connection {
             s.write().unwrap().remove_connection(&self.inner);
         }
         log::info!("#{} Connection closed: {}", self.inner.id(), reason);
-        if lock && self.lock_after_session_end && self.keyboard {
-            #[cfg(not(any(target_os = "android", target_os = "ios")))]
-            lock_screen().await;
-        }
         self.tx_to_cm.send(ipc::Data::Close).ok();
         self.port_forward_socket.take();
     }

@@ -145,7 +145,8 @@ fn run_cursor(sp: MouseCursorService, state: &mut StateCursor) -> ResultType<()>
                 msg = cached.clone();
             } else {
                 let mut data = crate::get_cursor_data(hcursor)?;
-                data.colors = hbb_common::compress::compress(&data.colors[..], COMPRESS_LEVEL).into();
+                data.colors =
+                    hbb_common::compress::compress(&data.colors[..], COMPRESS_LEVEL).into();
                 let mut tmp = Message::new();
                 tmp.set_cursor_data(data);
                 msg = Arc::new(tmp);
@@ -459,39 +460,6 @@ pub fn is_enter(evt: &KeyEvent) -> bool {
     return false;
 }
 
-pub async fn lock_screen() {
-    cfg_if::cfg_if! {
-    if #[cfg(target_os = "linux")] {
-        // xdg_screensaver lock not work on Linux from our service somehow
-        // loginctl lock-session also not work, they both work run rustdesk from cmd
-        std::thread::spawn(|| {
-            let mut key_event = KeyEvent::new();
-            key_event.down = true;
-            key_event.set_chr('l' as _);
-            key_event.modifiers.push(ControlKey::Meta.into());
-            handle_key(&key_event);
-            key_event.down = false;
-            handle_key(&key_event);
-        });
-    } else if #[cfg(target_os = "macos")] {
-        // CGSession -suspend not real lock screen, it is user switch
-        std::thread::spawn(|| {
-            let mut key_event = KeyEvent::new();
-            key_event.down = true;
-            key_event.set_chr('q' as _);
-            key_event.modifiers.push(ControlKey::Meta.into());
-            key_event.modifiers.push(ControlKey::Control.into());
-            handle_key(&key_event);
-            key_event.down = false;
-            handle_key(&key_event);
-        });
-    } else {
-    crate::platform::lock_screen();
-    }
-    }
-    super::video_service::switch_to_primary().await;
-}
-
 lazy_static::lazy_static! {
     static ref KEY_MAP: HashMap<i32, Key> =
     [
@@ -698,7 +666,6 @@ fn handle_key_(evt: &KeyEvent) {
                     allow_err!(send_sas());
                 });
             } else if ck.value() == ControlKey::LockScreen.value() {
-                lock_screen_2();
             }
         }
         Some(key_event::Union::Chr(chr)) => {
@@ -746,11 +713,6 @@ fn handle_key_(evt: &KeyEvent) {
         en.key_down(Key::NumLock).ok();
         en.key_up(Key::NumLock);
     }
-}
-
-#[tokio::main(flavor = "current_thread")]
-async fn lock_screen_2() {
-    lock_screen().await;
 }
 
 #[tokio::main(flavor = "current_thread")]

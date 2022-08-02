@@ -581,13 +581,6 @@ pub fn get_pa_sources() -> Vec<(String, String)> {
     out
 }
 
-pub fn lock_screen() {
-    std::process::Command::new("xdg-screensaver")
-        .arg("lock")
-        .spawn()
-        .ok();
-}
-
 pub fn toggle_blank_screen(_v: bool) {
     // https://unix.stackexchange.com/questions/17170/disable-keyboard-mouse-input-on-unix-under-x
 }

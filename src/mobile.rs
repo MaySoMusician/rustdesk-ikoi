@@ -285,13 +285,6 @@ impl Session {
         Self::send_msg_static(msg_out);
     }
 
-    pub fn lock_screen() {
-        if let Some(session) = SESSION.read().unwrap().as_ref() {
-            let k = Key::ControlKey(ControlKey::LockScreen);
-            session.key_down_or_up(1, k, false, false, false, false);
-        }
-    }
-
     pub fn input_key(
         name: &str,
         down: bool,

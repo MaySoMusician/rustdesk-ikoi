@@ -391,15 +391,6 @@ pub fn run_as_user(arg: &str) -> ResultType<Option<std::process::Child>> {
     Ok(Some(task))
 }
 
-pub fn lock_screen() {
-    std::process::Command::new(
-        "/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession",
-    )
-    .arg("-suspend")
-    .output()
-    .ok();
-}
-
 pub fn start_os_service() {
     let exe = std::env::current_exe().unwrap_or_default();
     let tm0 = hbb_common::get_modified_time(&exe);
