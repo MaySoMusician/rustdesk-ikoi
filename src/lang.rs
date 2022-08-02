@@ -1,47 +1,13 @@
 use serde_json::{json, value::Value};
 use std::ops::Deref;
 
-mod cn;
-mod cs;
-mod da;
-mod de;
 mod en;
-mod eo;
-mod es;
-mod fr;
-mod hu;
-mod id;
-mod it;
 mod ja;
-mod pl;
-mod ptbr;
-mod ru;
-mod sk;
-mod tr;
-mod tw;
-mod vn;
 
 lazy_static::lazy_static! {
     pub static ref LANGS: Value =
         json!(vec![
             ("en", "English"),
-            ("it", "Italiano"),
-            ("fr", "Français"),
-            ("de", "Deutsch"),
-            ("cn", "简体中文"),
-            ("tw", "繁體中文"),
-            ("pt", "Português"),
-            ("es", "Español"),
-            ("hu", "Magyar"),
-            ("ru", "Русский"),
-            ("sk", "Slovenčina"),
-            ("id", "Indonesia"),
-            ("cs", "Čeština"),
-            ("da", "Dansk"),
-            ("eo", "Esperanto"),
-            ("tr", "Türkçe"),
-            ("vn", "Tiếng Việt"),
-            ("pl", "Polski"),
             ("ja", "日本語"),
         ]);
 }
@@ -70,25 +36,6 @@ pub fn translate_locale(name: String, locale: &str) -> String {
     }
     let lang = lang.to_lowercase();
     let m = match lang.as_str() {
-        "fr" => fr::T.deref(),
-        "cn" => cn::T.deref(),
-        "it" => it::T.deref(),
-        "tw" => tw::T.deref(),
-        "de" => de::T.deref(),
-        "es" => es::T.deref(),
-        "hu" => hu::T.deref(),
-        "ru" => ru::T.deref(),
-        "eo" => eo::T.deref(),
-        "id" => id::T.deref(),
-        "ptbr" => ptbr::T.deref(),
-        "br" => ptbr::T.deref(),
-        "pt" => ptbr::T.deref(),
-        "tr" => tr::T.deref(),
-        "cs" => cs::T.deref(),
-        "da" => da::T.deref(),
-        "sk" => sk::T.deref(),
-        "vn" => vn::T.deref(),
-        "pl" => pl::T.deref(),
         "ja" => ja::T.deref(),
         _ => en::T.deref(),
     };
