@@ -377,12 +377,10 @@ class FolderView : Reactor.Component {
           <div .send .button>{svg_send}<span>{translate('Receive')}</span></div>
           <div .spacer></div>
           <div .add-folder .button>{svg_add_folder}</div>
-          <div .trash .button>{svg_trash}</div>
         </div>;
       }
       return <div .toolbar>
         <div .add-folder .button>{svg_add_folder}</div>
-        <div .trash .button>{svg_trash}</div>
         <div .spacer></div>
         <div .send .button><span>{translate('Send')}</span>{svg_send}</div>
       </div>;
