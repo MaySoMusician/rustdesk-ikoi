@@ -1,11 +1,11 @@
 [package]
-name = "rustdesk"
+name = "rustdesk-ikoi"
 version = "1.1.10"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["MaySoMusician <maysomusician@gmail.com>", "rustdesk <info@rustdesk.com>"]
 edition = "2021"
 build= "build.rs"
 description = "A remote control software."
-default-run = "rustdesk"
+default-run = "rustdesk-ikoi"
 
 [lib]
 name = "librustdesk"
