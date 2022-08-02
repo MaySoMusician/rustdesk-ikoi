@@ -207,9 +207,9 @@ impl Connection {
         if !conn.file {
             conn.send_permission(Permission::File, false).await;
         }
-        if !conn.restart {
-            conn.send_permission(Permission::Restart, false).await;
-        }
+        // Always deny restart permission
+        conn.send_permission(Permission::Restart, false).await;
+
         let mut test_delay_timer =
             time::interval_at(Instant::now() + TEST_DELAY_TIMEOUT, TEST_DELAY_TIMEOUT);
         let mut last_recv_time = Instant::now();
@@ -288,8 +288,9 @@ impl Connection {
                                 conn.send_permission(Permission::File, enabled).await;
                                 conn.send_to_cm(ipc::Data::ClipboardFileEnabled(conn.file_transfer_enabled()));
                             } else if &name == "restart" {
-                                conn.restart = enabled;
-                                conn.send_permission(Permission::Restart, enabled).await;
+                                // Always deny restart permission
+                                conn.restart = false;
+                                conn.send_permission(Permission::Restart, false).await;
                             }
                         }
                         ipc::Data::RawMessage(bytes) => {
@@ -1226,15 +1227,8 @@ impl Connection {
                         return false;
                     }
 
-                    Some(misc::Union::RestartRemoteDevice(_)) =>
-                    {
-                        #[cfg(not(any(target_os = "android", target_os = "ios")))]
-                        if self.restart {
-                            match system_shutdown::reboot() {
-                                Ok(_) => log::info!("Restart by the peer"),
-                                Err(e) => log::error!("Failed to restart:{}", e),
-                            }
-                        }
+                    Some(misc::Union::RestartRemoteDevice(_)) => {
+                        return false;
                     }
                     _ => {}
                 },

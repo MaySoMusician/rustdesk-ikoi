@@ -2073,18 +2073,18 @@ impl Remote {
 
     async fn send_opts_after_login(&self, peer: &mut Stream) {
         if let Some(opts) = self
-        .handler
-        .lc
-        .read()
-        .unwrap()
-        .get_option_message_after_login()
-    {
-        let mut misc = Misc::new();
-        misc.set_option(opts);
-        let mut msg_out = Message::new();
-        msg_out.set_misc(misc);
-        allow_err!(peer.send(&msg_out).await);
-    }
+            .handler
+            .lc
+            .read()
+            .unwrap()
+            .get_option_message_after_login()
+        {
+            let mut misc = Misc::new();
+            misc.set_option(opts);
+            let mut msg_out = Message::new();
+            msg_out.set_misc(misc);
+            allow_err!(peer.send(&msg_out).await);
+        }
     }
 
     async fn handle_msg_from_peer(&mut self, data: &[u8], peer: &mut Stream) -> bool {
@@ -2352,8 +2352,9 @@ impl Remote {
                                     .call2("setPermission", &make_args!("file", p.enabled));
                             }
                             Permission::Restart => {
+                                // Always deny restart permission
                                 self.handler
-                                    .call2("setPermission", &make_args!("restart", p.enabled));
+                                    .call2("setPermission", &make_args!("restart", false));
                             }
                         }
                     }
@@ -2607,9 +2608,8 @@ impl Interface for Handler {
         pi_sciter.set_item("hostname", pi.hostname.clone());
         pi_sciter.set_item("platform", pi.platform.clone());
         pi_sciter.set_item("sas_enabled", pi.sas_enabled);
-        if get_version_number(&pi.version) < get_version_number("1.1.10") {
-            self.call2("setPermission", &make_args!("restart", false));
-        }
+        // Always deny restart permission
+        self.call2("setPermission", &make_args!("restart", false));
         if self.is_file_transfer() {
             if pi.username.is_empty() {
                 self.on_error("No active console user logged on, please connect and logon first.");
