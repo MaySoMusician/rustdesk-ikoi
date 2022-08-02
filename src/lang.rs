@@ -7,8 +7,8 @@ mod ja;
 lazy_static::lazy_static! {
     pub static ref LANGS: Value =
         json!(vec![
-            ("en", "English"),
             ("ja", "日本語"),
+            ("en", "English"),
         ]);
 }
 
