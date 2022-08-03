@@ -490,7 +490,6 @@ class App: Reactor.Component
                                 <button .button #connect>{translate('Connect')}</button>
                             </div>
                         </div>
-                        <MultipleSessions @{this.multipleSessions} />
                     </div>
                     <ConnectStatus @{this.connect_status} />
                 </div>
