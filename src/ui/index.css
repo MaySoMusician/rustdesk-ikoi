@@ -181,6 +181,16 @@ span.clear-input:hover {
     margin-left: 1.6em;
 }
 
+button#connect:disabled {
+    background: color(gray-bg);
+    color: color(lighter-text);
+}
+
+button#file-transfer:disabled {
+    background: color(gray-bg);
+    color: color(lighter-text);
+}
+
 div.connect-status {
     left: 240px;
     border-top: color(border) solid 1px;
