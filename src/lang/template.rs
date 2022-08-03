@@ -303,5 +303,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Source code for this fork", ""),
         ("Privacy statement (original)", ""),
         ("RustDesk website", ""),
+        ("Students can't request to receive files in the remote device.", ""),
+        ("Your files will always be sent to the home directory in the remote device.", ""),
     ].iter().cloned().collect();
 }

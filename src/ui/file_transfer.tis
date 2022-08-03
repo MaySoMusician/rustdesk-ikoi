@@ -339,6 +339,16 @@ class FolderView : Reactor.Component {
 
     function render() 
     {
+      if (this.is_remote) {
+        return  <section>
+            {this.renderTitle()}
+            {this.renderNavBar()}
+            <div style="padding: 3.6rem 0.5rem 0;">
+              <p>{translate("Students can't request to receive files in the remote device.")}</p>
+              <p>{translate("Your files will always be sent to the home directory in the remote device.")}</p>
+            </div>
+        </section>
+      }
       return <section>
             {this.renderTitle()}
             {this.renderNavBar()}
@@ -356,6 +366,11 @@ class FolderView : Reactor.Component {
     }
 
     function renderNavBar() {
+      if (this.is_remote) {
+        return <div .toolbar .navbar>
+          {this.renderSelect()}
+        </div>;
+      }
       return <div .toolbar .navbar>
         <div .home .button>{svg_home}</div>
         <div .goback .button>{svg_arrow}</div>
@@ -366,6 +381,9 @@ class FolderView : Reactor.Component {
     }
 
     function renderSelect() {
+      if (this.is_remote) {
+        return <input .select-dir-remote type="text" readonly @{this.select_dir} />;
+      }
       return <select editable .select-dir @{this.select_dir}>    
         <option>/</option>    
       </select>;
@@ -387,8 +405,9 @@ class FolderView : Reactor.Component {
     }
 
     function get_updated() {
-      this.table.sortRows(false);
       if (this.fd && this.fd.path) this.select_dir.value = this.fd.path;
+      if (this.is_remote) return;
+      this.table.sortRows(false);
     }
 
     function renderTable() {
@@ -431,13 +450,15 @@ class FolderView : Reactor.Component {
     
     function attached() {
       var me = this;
-      this.table.onRowDoubleClick = function (row) {
-        var type = row[0].attributes["type"];
-        if (type > 3) return;
-        var name = row[1].text;
-        var path = name == ".." ? getParentPath(me.is_remote, me.fd.path) : me.joinPath(name);
-        me.table.resetCurrent();
-        me.goto(path, true);
+      if(this.table) {
+        this.table.onRowDoubleClick = function (row) {
+          var type = row[0].attributes["type"];
+          if (type > 3) return;
+          var name = row[1].text;
+          var path = name == ".." ? getParentPath(me.is_remote, me.fd.path) : me.joinPath(name);
+          me.table.resetCurrent();
+          me.goto(path, true);
+        }
       }
       this.get_updated();
     }
@@ -802,6 +823,6 @@ function save_file_transfer_close_state() {
   var remote_show_hidden = file_transfer.remote_folder_view.show_hidden ? "Y" : "";
   handler.save_close_state("local_dir", local_dir);
   handler.save_close_state("local_show_hidden", local_show_hidden);
-  handler.save_close_state("remote_dir", remote_dir);
+  handler.save_close_state("remote_dir", ""); // Always save empty
   handler.save_close_state("remote_show_hidden", remote_show_hidden);
 }

@@ -177,6 +177,13 @@ select.select-dir {
   padding: 0 4px;
 }
 
+input.select-dir-remote {
+  width: *;
+  padding: 0 4px;
+  font-size: 1rem;
+  background: color(gray-bg);
+}
+
 div.title {
   flow: horizontal;
   border-spacing: 1em;
