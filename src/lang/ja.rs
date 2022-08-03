@@ -300,6 +300,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Restarting Remote Device", "リモート端末を再起動中"),
         ("remote_restarting_tip", "リモート端末は再起動中です。このメッセージボックスを閉じて、しばらくした後に固定のパスワードを使用して再接続してください。"),
         ("about_box_title", "{app} について"),
+        ("For students", "生徒用"),
         ("Source code for this fork", "オンライン憩い版 ソースコード"),
         ("Privacy statement (original)", "プライバシー宣言 （RustDesk本体）"),
         ("RustDesk website", "RustDesk 公式サイト"),

@@ -301,7 +301,7 @@ class MyIdMenu: Reactor.Component {
         var name = handler.get_app_name();
         var title = translate("about_box_title").replace("{app}", name)
         msgbox("custom-nocancel-nook-hasclose", title, "<div style='line-height: 2em'> \
-            <div><p style='font-size: 1.4rem; line-height: 110%; font-weight: bold; margin-bottom: 0;'>" + "Generic" + "</p> \
+            <div><p style='font-size: 1.4rem; line-height: 110%; font-weight: bold; margin-bottom: 0;'>" + translate("For students") + "</p> \
             Version: " + handler.get_version() + " \
             <div .link .custom-event url='https://github.com/MaySoMusician/rustdesk-ikoi'>" +
             translate("Source code for this fork") + "</div><br /> \
