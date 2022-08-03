@@ -138,14 +138,14 @@ def main():
     if windows:
         os.system('cargo build --release --features ' + features)
         # os.system('upx.exe target/release/rustdesk.exe')
-        os.system('mv target/release/rustdesk.exe target/release/RustDesk.exe')
+        # os.system('mv target/release/rustdesk-ikoi.exe target/release/RustDesk.exe')
         pa = os.environ.get('P')
         if pa:
             os.system(f'signtool sign /a /v /p {pa} /debug /f .\\cert.pfx /t http://timestamp.digicert.com  '
-                      'target\\release\\rustdesk.exe')
+                      'target\\release\\rustdesk-ikoi.exe')
         else:
             print('Not signed')
-        os.system(f'cp -rf target/release/RustDesk.exe rustdesk-{version}-setdown.exe')
+        os.system(f'cp -rf target/release/rustdesk-ikoi.exe rustdesk-{version}-setdown.exe')
     elif os.path.isfile('/usr/bin/pacman'):
         os.system('cargo build --release --features ' + features)
         os.system('git checkout src/ui/common.tis')
