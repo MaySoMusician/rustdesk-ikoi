@@ -903,7 +903,7 @@ updatePasswordArea();
 class ID: Reactor.Component {
     function render() {
         return <input type="text" #remote_id .outline-focus novalue={translate("Enter Remote ID")} maxlength="21"
-        value={formatId(handler.get_remote_id())} />;
+        value={""} />;
     }
 
     // https://github.com/c-smile/sciter-sdk/blob/master/doc/content/sciter/Event.htm
