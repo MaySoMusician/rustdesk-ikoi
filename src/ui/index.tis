@@ -491,7 +491,6 @@ class App: Reactor.Component
                             <ID @{this.remote_id} />
                             <div .right-buttons>
                                 <button .button .outline #file-transfer disabled>{translate('Transfer File')}</button>
-                                <button .button #connect disabled>{translate('Connect')}</button>
                             </div>
                         </div>
                     </div>
@@ -919,10 +918,8 @@ class ID: Reactor.Component {
         // it's dirty to control from here but there seems no other place
         if(this.value) {
             $(#file-transfer).@#disabled = false
-            $(#connect).@#disabled = false
         } else {
             $(#file-transfer).@#disabled = true
-            $(#connect).@#disabled = true
         }
 
         if (fid == this.value || d <= 0 || start != end) {
