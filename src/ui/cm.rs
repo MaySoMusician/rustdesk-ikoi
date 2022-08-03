@@ -160,7 +160,7 @@ impl ConnectionManager {
                     id,
                     file_num,
                     mut files,
-                    overwrite_detection
+                    overwrite_detection,
                 } => {
                     // cm has no show_hidden context
                     // dummy remote, show_hidden, is_remote
@@ -450,21 +450,6 @@ async fn start_ipc(cm: ConnectionManager) {
     let cm_clip = cm.clone();
     #[cfg(windows)]
     std::thread::spawn(move || start_clipboard_file(cm_clip, _rx_file));
-
-    #[cfg(windows)]
-    std::thread::spawn(move || {
-        log::info!("try create privacy mode window");
-        #[cfg(windows)]
-        {
-            if let Err(e) = crate::platform::windows::check_update_broker_process() {
-                log::warn!(
-                    "Failed to check update broker process. Privacy mode may not work properly. {}",
-                    e
-                );
-            }
-        }
-        allow_err!(crate::ui::win_privacy::start());
-    });
 
     match new_listener("_cm").await {
         Ok(mut incoming) => {

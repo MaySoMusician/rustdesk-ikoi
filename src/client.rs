@@ -1023,11 +1023,7 @@ impl LoginConfigHandler {
     }
 
     pub fn is_privacy_mode_supported(&self) -> bool {
-        if let Some(features) = &self.features {
-            features.privacy_mode
-        } else {
-            false
-        }
+        false
     }
 
     pub fn refresh() -> Message {
