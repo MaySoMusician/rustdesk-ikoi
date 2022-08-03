@@ -300,6 +300,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Restarting Remote Device", ""),
         ("remote_restarting_tip", ""),
         ("about_box_title", ""),
+        ("For teachers", ""),
         ("Source code for this fork", ""),
         ("Privacy statement (original)", ""),
         ("RustDesk website", ""),
