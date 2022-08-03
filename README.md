@@ -1,3 +1,20 @@
+# RustDesk オンライン憩い版
+
+Special fork for our university of RustDesk.
+
+[**アプリをダウンロード**](https://github.com/MaySoMusician/rustdesk-ikoi/releases)
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+
+# README FROM ORIGINAL REPOSITORY
+
 <p align="center">
   <img src="logo-header.svg" alt="RustDesk - Your remote desktop"><br>
   <a href="#free-public-servers">Servers</a> •
@@ -5,13 +22,10 @@
   <a href="#how-to-build-with-docker">Docker</a> •
   <a href="#file-structure">Structure</a> •
   <a href="#snapshot">Snapshot</a><br>
-  [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>]<br>
-  <b>We need your help to translate this README, <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> and <a href="https://github.com/rustdesk/doc.rustdesk.com">Doc</a> to your native language</b>
+  [<a href="README-JP.md">日本語</a>]
 </p>
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk)
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I04VU09)
+Contact the original RustDesk developers: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [Support via Ko-fi](https://ko-fi.com/I2I04VU09)
 
 Yet another remote desktop software, written in Rust. Works out of the box, no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).
 
@@ -19,13 +33,9 @@ Yet another remote desktop software, written in Rust. Works out of the box, no c
 
 RustDesk welcomes contribution from everyone. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for help getting started.
 
-[**How does RustDesk work?**](https://github.com/rustdesk/rustdesk/wiki/How-does-RustDesk-work%3F)
+[**How does RustDesk work?** (original wiki)](https://github.com/rustdesk/rustdesk/wiki/How-does-RustDesk-work%3F)
 
-[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
-
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
+[Original Binary Download](https://github.com/rustdesk/rustdesk/releases)
 
 ## Free Public Servers
 

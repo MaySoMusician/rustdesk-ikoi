@@ -5,14 +5,10 @@
   <a href="#how-to-build-with-docker">Docker</a> •
   <a href="#file-structure">Structure</a> •
   <a href="#snapshot">Snapshot</a><br>
-  [<a href="README-CS.md">česky</a>] | [<a href="README-ZH.md">中文</a>] | | [<a href="README-HU.md">Magyar</a>] | [<a href="README-ES.md">Español</a>] | [<a href="README-FA.md">فارسی</a>] | [<a href="README-FR.md">Français</a>] | [<a href="README-DE.md">Deutsch</a>] | [<a href="README-PL.md">Polski</a>] | [<a href="README-ID.md">Indonesian</a>] | [<a href="README-FI.md">Suomi</a>] | [<a href="README-ML.md">മലയാളം</a>] | [<a href="README-JP.md">日本語</a>] | [<a href="README-NL.md">Nederlands</a>] | [<a href="README-IT.md">Italiano</a>] | [<a href="README-RU.md">Русский</a>] | [<a href="README-PTBR.md">Português (Brasil)</a>] | [<a href="README-EO.md">Esperanto</a>] | [<a href="README-KR.md">한국어</a>] | [<a href="README-AR.md">العربي</a>] | [<a href="README-VN.md">Tiếng Việt</a>]<br>
-  <b>このREADMEをあなたの母国語に翻訳するために、あなたの助けが必要です。</b>
+  [<a href="README.md">English</a>]<br>
 </p>
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk)
-
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I04VU09)
+元のRustDesk開発者の連絡先: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [Ko-fiで支援](https://ko-fi.com/I2I04VU09)
 
 Rustで書かれた、設定不要ですぐに使えるリモートデスクトップソフトウェアです。自分のデータを完全にコントロールでき、セキュリティの心配もありません。私たちのランデブー/リレーサーバを使うことも、[自分で設定する](https://rustdesk.com/server) ことも、 [自分でランデブー/リレーサーバを書くこともできます。](https://github.com/rustdesk/rustdesk-server-demo).
 
@@ -20,9 +16,9 @@ Rustで書かれた、設定不要ですぐに使えるリモートデスクト�
 
 RustDeskは誰からの貢献も歓迎します。 貢献するには [`CONTRIBUTING.md`](CONTRIBUTING.md) を参照してください。
 
-[**RustDeskはどの様に動くのか?**](https://github.com/rustdesk/rustdesk/wiki/How-does-RustDesk-work%3F)
+[**RustDeskはどの様に動くのか？**（元レポジトリのウィキ）](https://github.com/rustdesk/rustdesk/wiki/How-does-RustDesk-work%3F)
 
-[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
+[元のバイナリをダウンロード](https://github.com/rustdesk/rustdesk/releases)
 
 ## 無料のパブリックサーバー
 
