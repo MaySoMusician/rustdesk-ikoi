@@ -4,6 +4,16 @@ Special fork for our university of RustDesk.
 
 [**アプリをダウンロード**](https://github.com/MaySoMusician/rustdesk-ikoi/releases)
 
+## 変更点
+
+- リモート再起動・リモート端末ロックなど強力な操作機能の無効化
+- ファイル転送におけるファイル削除機能の除去
+- セッションの履歴保持機能の除去
+- その他不要な設定項目の削除
+- 日本語・英語以外の言語の除去
+- 中国サーバーに接続しないよう変更
+- アプリ名等の変更
+
 <br/>
 <br/>
 
