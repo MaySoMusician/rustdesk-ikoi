@@ -462,6 +462,7 @@ class App: Reactor.Component
 
     function render() {
         var is_can_screen_recording = handler.is_can_screen_recording(false);
+        var buttonState = !(this.remote_id && this.remote_id.value)
         return
             <div .app>
                     <div .left-pane>
@@ -490,7 +491,7 @@ class App: Reactor.Component
                             <div .title>{translate('Control Remote Desktop')}</div>
                             <ID @{this.remote_id} />
                             <div .right-buttons>
-                                <button .button .outline #file-transfer disabled>{translate('Transfer File')}</button>
+                                <button .button .outline #file-transfer disabled={buttonState}>{translate('Transfer File')}</button>
                             </div>
                         </div>
                     </div>
