@@ -299,5 +299,9 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Are you sure you want to restart", ""),
         ("Restarting Remote Device", ""),
         ("remote_restarting_tip", ""),
+        ("about_box_title", ""),
+        ("Source code for this fork", ""),
+        ("Privacy statement (original)", ""),
+        ("RustDesk website", ""),
     ].iter().cloned().collect();
 }

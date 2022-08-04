@@ -299,12 +299,14 @@ class MyIdMenu: Reactor.Component {
 
     function showAbout() {
         var name = handler.get_app_name();
-        msgbox("custom-nocancel-nook-hasclose", name + " について", "<div style='line-height: 2em'> \
-            <div>Version: " + handler.get_version() + " \
-            <div .link .custom-event url='https://github.com/MaySoMusician/rustdesk-ikoi'>オンライン憩い版 ソースコード</div> \
-            <br /> \
-            <div .link .custom-event url='https://rustdesk.com/privacy'>プライバシー宣言 （RustDesk本体）</div> \
-            <div .link .custom-event url='https://rustdesk.com'>RustDesk 公式サイト</div> \
+        var title = translate("about_box_title").replace("{app}", name)
+        msgbox("custom-nocancel-nook-hasclose", title, "<div style='line-height: 2em'> \
+            <div><p style='font-size: 1.4rem; line-height: 110%; font-weight: bold; margin-bottom: 0;'>" + "Generic" + "</p> \
+            Version: " + handler.get_version() + " \
+            <div .link .custom-event url='https://github.com/MaySoMusician/rustdesk-ikoi'>" +
+            translate("Source code for this fork") + "</div><br /> \
+            <div .link .custom-event url='https://rustdesk.com/privacy'>" + translate("Privacy statement (original)") + "</div> \
+            <div .link .custom-event url='https://rustdesk.com'>" + translate("RustDesk website") + "</div> \
             <div style='background: #2c8cff; color: white; padding: 1em; margin-top: 1em;'>Copyright &copy; 2022 Purslane Ltd.\
             <br />" + handler.get_license() + " \
             <p style='font-weight: bold'>Made with heart in this chaotic world!</p>\
