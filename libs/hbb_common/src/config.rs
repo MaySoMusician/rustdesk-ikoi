@@ -45,7 +45,7 @@ lazy_static::lazy_static! {
     static ref LOCAL_CONFIG: Arc<RwLock<LocalConfig>> = Arc::new(RwLock::new(LocalConfig::load()));
     pub static ref ONLINE: Arc<Mutex<HashMap<String, i64>>> = Default::default();
     pub static ref PROD_RENDEZVOUS_SERVER: Arc<RwLock<String>> = Default::default();
-    pub static ref APP_NAME: Arc<RwLock<String>> = Arc::new(RwLock::new("RustDesk".to_owned()));
+    pub static ref APP_NAME: Arc<RwLock<String>> = Arc::new(RwLock::new("RustDesk オンライン憩い版 Generic".to_owned()));
     static ref KEY_PAIR: Arc<Mutex<Option<(Vec<u8>, Vec<u8>)>>> = Default::default();
 }
 #[cfg(target_os = "android")]
