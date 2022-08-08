@@ -117,7 +117,7 @@ members = ["libs/scrap", "libs/hbb_common", "libs/enigo", "libs/clipboard", "lib
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2022 Purslane, Inc."
 # this FileDescription overrides package.description
-FileDescription = "RustDesk"
+FileDescription = "RustDeskIkoiGeneric"
 
 [target.'cfg(target_os="windows")'.build-dependencies]
 winres = "0.1"
@@ -133,8 +133,8 @@ flutter_rust_bridge_codegen = "=1.30.0"
 hound = "3.4"
 
 [package.metadata.bundle]
-name = "RustDesk"
-identifier = "com.carriez.rustdesk"
+name = "RustDeskIkoiGeneric"
+identifier = "com.carriez.rustdesk_ikoi_generic"
 icon = ["32x32.png", "128x128.png", "128x128@2x.png"]
 deb_depends = ["libgtk-3-0", "libxcb-randr0", "libxdo3", "libxfixes3", "libxcb-shape0", "libxcb-xfixes0", "libasound2", "libsystemd0", "pulseaudio", "python3-pip", "curl"]
 osx_minimum_system_version = "10.14"

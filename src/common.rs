@@ -7,8 +7,8 @@ use hbb_common::{
     config::{self, Config, COMPRESS_LEVEL, RENDEZVOUS_TIMEOUT},
     get_version_number, log,
     message_proto::*,
-    protobuf::Message as _,
     protobuf::Enum,
+    protobuf::Message as _,
     rendezvous_proto::*,
     sleep, socket_client, tokio, ResultType,
 };
@@ -48,7 +48,7 @@ pub fn create_clipboard_msg(content: String) -> Message {
     let mut msg = Message::new();
     msg.set_clipboard(Clipboard {
         compress,
-        content:content.into(),
+        content: content.into(),
         ..Default::default()
     });
     msg
@@ -523,7 +523,7 @@ pub fn get_full_name() -> String {
     format!(
         "{}.{}",
         hbb_common::config::ORG.read().unwrap(),
-        hbb_common::config::APP_NAME.read().unwrap(),
+        hbb_common::config::APP_NAME_INTL.read().unwrap(),
     )
 }
 

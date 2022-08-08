@@ -3,16 +3,16 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.carriez.RustDesk_service</string>
+        <string>com.carriez.RustDeskIkoiGeneric_service</string>
         <key>KeepAlive</key>
-        <true/>
+        <true />
         <key>ProgramArguments</key>
         <array>
-        	<string>/Applications/RustDesk.app/Contents/MacOS/rustdesk</string>
-        	<string>--service</string>
+            <string>/Applications/RustDesk.app/Contents/MacOS/rustdesk</string>
+            <string>--service</string>
         </array>
         <key>RunAtLoad</key>
-        <true/>
+        <true />
         <key>WorkingDirectory</key>
         <string>/Applications/RustDesk.app/Contents/MacOS/</string>
         <key>StandardErrorPath</key>

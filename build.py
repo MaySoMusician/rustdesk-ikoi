@@ -174,12 +174,12 @@ def main():
         os.system('cargo bundle --release --features ' + features)
         if osx:
             os.system(
-                'strip target/release/bundle/osx/RustDesk.app/Contents/MacOS/rustdesk')
+                'strip target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/rustdesk')
             os.system(
-                'cp libsciter.dylib target/release/bundle/osx/RustDesk.app/Contents/MacOS/')
+                'cp libsciter.dylib target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/')
             # https://github.com/sindresorhus/create-dmg
             os.system('/bin/rm -rf *.dmg')
-            plist = "target/release/bundle/osx/RustDesk.app/Contents/Info.plist"
+            plist = "target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/Info.plist"
             txt = open(plist).read()
             with open(plist, "wt") as fh:
                 fh.write(txt.replace("</dict>", """
@@ -190,15 +190,15 @@ def main():
             if pa:
                 os.system('''
 # buggy: rcodesign sign ... path/*, have to sign one by one
-#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDesk.app/Contents/MacOS/rustdesk
-#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDesk.app/Contents/MacOS/libsciter.dylib
-#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDesk.app
+#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/rustdesk
+#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/libsciter.dylib
+#rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./target/release/bundle/osx/RustDeskIkoiGeneric.app
 # goto "Keychain Access" -> "My Certificates" for below id which starts with "Developer ID Application:"
-codesign -s "Developer ID Application: {0}" --force --options runtime  ./target/release/bundle/osx/RustDesk.app/Contents/MacOS/*
-codesign -s "Developer ID Application: {0}" --force --options runtime  ./target/release/bundle/osx/RustDesk.app
+codesign -s "Developer ID Application: {0}" --force --options runtime  ./target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/*
+codesign -s "Developer ID Application: {0}" --force --options runtime  ./target/release/bundle/osx/RustDeskIkoiGeneric.app
 '''.format(pa))
-            os.system('create-dmg target/release/bundle/osx/RustDesk.app')
-            os.rename('RustDesk %s.dmg' % version, 'rustdesk-%s.dmg' % version)
+            os.system('create-dmg target/release/bundle/osx/RustDeskIkoiGeneric.app')
+            os.rename('RustDeskIkoiGeneric %s.dmg' % version, 'rustdesk-%s.dmg' % version)
             if pa:
                 os.system('''
 #rcodesign sign --p12-file ~/.p12/rustdesk-developer-id.p12 --p12-password-file ~/.p12/.cert-pass --code-signature-flags runtime ./rustdesk-{1}.dmg
