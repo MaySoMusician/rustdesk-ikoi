@@ -3,7 +3,7 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.carriez.RustDeskIkoiGeneric_server</string>
+        <string>com.maysomusician.RustDeskIkoiGeneric_server</string>
         <key>LimitLoadToSessionType</key>
         <array>
             <string>LoginWindow</string>

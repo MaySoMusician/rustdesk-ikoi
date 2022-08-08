@@ -3,7 +3,7 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.carriez.RustDeskIkoiGeneric_service</string>
+        <string>com.maysomusician.RustDeskIkoiGeneric_service</string>
         <key>KeepAlive</key>
         <true />
         <key>ProgramArguments</key>
