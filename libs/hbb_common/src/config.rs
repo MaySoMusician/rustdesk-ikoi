@@ -34,7 +34,7 @@ pub const ICON: &str = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACA
 ";
 #[cfg(target_os = "macos")]
 lazy_static::lazy_static! {
-    pub static ref ORG: Arc<RwLock<String>> = Arc::new(RwLock::new("com.carriez".to_owned()));
+    pub static ref ORG: Arc<RwLock<String>> = Arc::new(RwLock::new("com.maysomusician".to_owned()));
 }
 
 type Size = (i32, i32, i32, i32);
@@ -46,6 +46,7 @@ lazy_static::lazy_static! {
     pub static ref ONLINE: Arc<Mutex<HashMap<String, i64>>> = Default::default();
     pub static ref PROD_RENDEZVOUS_SERVER: Arc<RwLock<String>> = Default::default();
     pub static ref APP_NAME: Arc<RwLock<String>> = Arc::new(RwLock::new("RustDesk オンライン憩い版 先生用".to_owned()));
+    pub static ref APP_NAME_INTL: Arc<RwLock<String>> = Arc::new(RwLock::new("RustDeskIkoiTeachers".to_owned()));
     static ref KEY_PAIR: Arc<Mutex<Option<(Vec<u8>, Vec<u8>)>>> = Default::default();
 }
 #[cfg(target_os = "android")]
