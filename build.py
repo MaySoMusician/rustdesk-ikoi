@@ -174,7 +174,7 @@ def main():
         os.system('cargo bundle --release --features ' + features)
         if osx:
             os.system(
-                'strip target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/rustdesk')
+                'strip target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/rustdesk-ikoi')
             os.system(
                 'cp libsciter.dylib target/release/bundle/osx/RustDeskIkoiGeneric.app/Contents/MacOS/')
             # https://github.com/sindresorhus/create-dmg
